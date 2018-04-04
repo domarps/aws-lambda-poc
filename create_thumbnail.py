@@ -13,6 +13,10 @@ def resize_image(image_path, resized_path):
         image.save(resized_path)
 
 def handler(event, context):
+    '''
+    the lambda function downloads to a local, resizes and uploads the resized image to the resized bucket.
+    :param event : each record contains the name of the incoming object
+    '''
     for record in event['Records']:
         bucket = record['s3']['bucket']['name']
         key = record['s3']['object']['key']
