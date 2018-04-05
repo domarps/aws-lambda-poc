@@ -7,6 +7,10 @@ import PIL.Image
 
 s3_client = boto3.client('s3')
 
+'''
+A simple utility to resize an image from one S3 bucket to S3 bucket. This sits in an lambda function.
+'''
+
 def resize_image(image_path, resized_path):
     with Image.open(image_path) as image:
         image.thumbnail((128,128))
